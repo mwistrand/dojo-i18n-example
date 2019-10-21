@@ -22,7 +22,7 @@ export default factory(function Home({ middleware: { i18n } }) {
   return (
     <div>
       <h1 classes={[css.root]}>Home Page</h1>
-      <div>{`System Locale: ${systemLocale}`}</div>
+      <div>{`System Locale: ${systemLocale} - Default Locale: 'en' - Registered Locales: ['fr'] - Current Locale: ${JSON.stringify(i18n.get())}` }</div>
       <button
         onclick={() => {
           i18n.set({ locale: "fr" });

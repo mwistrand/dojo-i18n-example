@@ -1,7 +1,7 @@
 {
 	"build-app": {
 		"locale": "en",
-		"supportedLocales": ["fr", "en"],
+		"supportedLocales": ["fr"],
 		"cldrPaths": [
 			"cldr-data/supplemental/plurals.json",
 			"cldr-data/supplemental/likelySubtags"
