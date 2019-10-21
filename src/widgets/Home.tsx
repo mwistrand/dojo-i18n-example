@@ -7,6 +7,17 @@ import bundle from "./nls/Home";
 
 const factory = create({ i18n });
 
+const dojorc = `
+"build-app": {
+    "locale": "en",
+    "supportedLocales": ["fr"],
+    "cldrPaths": [
+        "cldr-data/supplemental/plurals.json",
+        "cldr-data/supplemental/likelySubtags"
+    ]
+}
+`;
+
 export default factory(function Home({ middleware: { i18n } }) {
   const { format } = i18n.localize(bundle);
   let error: any;
@@ -22,7 +33,13 @@ export default factory(function Home({ middleware: { i18n } }) {
   return (
     <div>
       <h1 classes={[css.root]}>Home Page</h1>
-      <div>{`System Locale: ${systemLocale} - Default Locale: 'en' - Registered Locales: ['fr'] - Current Locale: ${JSON.stringify(i18n.get())}` }</div>
+      <div>{`System Locale: ${systemLocale} - Current Locale (set by middleware): ${JSON.stringify(
+        i18n.get()
+      )}`}</div>
+      <div>
+        <div>dojorc configuration:</div>
+        <pre>{dojorc}</pre>
+      </div>
       <button
         onclick={() => {
           i18n.set({ locale: "fr" });
@@ -43,6 +60,13 @@ export default factory(function Home({ middleware: { i18n } }) {
         }}
       >
         english (en)
+      </button>
+      <button
+        onclick={() => {
+          i18n.set({ locale: "zh-CN" });
+        }}
+      >
+        simplified chinese (zh-CN)
       </button>
       <button
         onclick={() => {
