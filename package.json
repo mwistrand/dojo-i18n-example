@@ -11,7 +11,7 @@
     "test:all": "dojo build --mode unit && dojo build --mode functional && dojo test --all --config local"
   },
   "dependencies": {
-    "@dojo/framework": "^6.0.0",
+    "@dojo/framework": "./deps/dojo-framework-7.0.0-alpha.1.tgz",
     "@dojo/themes": "^6.0.0",
     "@dojo/widgets": "^6.0.0",
     "tslib": "~1.9.1"
